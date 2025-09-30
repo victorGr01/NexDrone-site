@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexDrone - Transporte Inteligente por Drones</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E63946',
+                        secondary: '#1A1A1A',
+                        light: '#F5F5F5',
+                        dark: '#333333',
+                        gray: '#6B7280'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1506947411487-a56738267384?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .drone-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .stats-item {
+            transition: all 0.3s ease;
+        }
+        
+        .stats-item:hover {
+            background-color: rgba(230, 57, 70, 0.1);
+        }
+        
+        .contact-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.5);
+        }
+    </style>
+</head>
+<body class="font-sans bg-light">
+    <!-- Navbar -->
+    <nav class="bg-secondary text-white py-4 px-6 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="bg-primary p-2 rounded-full">
+                    <i class="fas fa-drone-alt text-white text-2xl"></i>
+                </div>
+                <span class="text-xl font-bold">Nex<span class="text-primary">Drone</span></span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#inicio" class="hover:text-primary transition">Início</a>
+                <a href="#servicos" class="hover:text-primary transition">Serviços</a>
+                <a href="#sobre" class="hover:text-primary transition">Sobre Nós</a>
+                <a href="#vantagens" class="hover:text-primary transition">Vantagens</a>
+                <a href="#contato" class="hover:text-primary transition">Contato</a>
+            </div>
+            <button class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-bg text-white py-20 md:py-32 px-6">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Revolucionando o Transporte de Cargas</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Utilizamos drones aéreos e terrestres para entregas mais rápidas, eficientes e sustentáveis.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#contato" class="bg-primary hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full transition duration-300">Solicite um Orçamento</a>
+                <a href="#servicos" class="bg-transparent hover:bg-white hover:text-secondary border-2 border-white text-white font-bold py-3 px-8 rounded-full transition duration-300">Nossos Serviços</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-white py-12 px-6">
+        <div class="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="stats-item bg-light p-6 rounded-lg text-center border-b-4 border-primary">
+                <h3 class="text-3xl font-bold text-secondary">+500</h3>
+                <p class="text-gray-600">Entregas Diárias</p>
+            </div>
+            <div class="stats-item bg-light p-6 rounded-lg text-center border-b-4 border-primary">
+                <h3 class="text-3xl font-bold text-secondary">+50</h3>
+                <p class="text-gray-600">Clientes Atendidos</p>
+            </div>
+            <div class="stats-item bg-light p-6 rounded-lg text-center border-b-4 border-primary">
+                <h3 class="text-3xl font-bold text-secondary">24/7</h3>
+                <p class="text-gray-600">Disponibilidade</p>
+            </div>
+            <div class="stats-item bg-light p-6 rounded-lg text-center border-b-4 border-primary">
+                <h3 class="text-3xl font-bold text-secondary">99%</h3>
+                <p class="text-gray-600">Taxa de Sucesso</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="py-16 px-6 bg-light">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-secondary">Nossos <span class="text-primary">Serviços</span></h2>
+            <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Oferecemos soluções completas de transporte utilizando a mais avançada tecnologia em drones.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Drone Aéreo -->
+                <div class="drone-card bg-white p-6 rounded-lg shadow-md transition duration-300">
+                    <div class="bg-primary text-white p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+                        <i class="fas fa-helicopter text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-secondary">Drones Aéreos</h3>
+                    <p class="text-gray-600 mb-4">Transporte rápido e eficiente para cargas de até 50kg, com alcance de até 100km por entrega.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-2"></i> Entrega em até 30 minutos</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-2"></i> Monitoramento em tempo real</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-2"></i> Ideal para medicamentos e emergências</li>
+                    </ul>
+                    <a href="#contato" class="text-primary font-semibold hover:underline">Saiba mais →</a>
+                </div>
+                
+                <!-- Drone Terrestre -->
+                <div class="drone-card bg-white p-6 rounded-lg shadow-md transition duration-300">
+                    <div class="bg-primary text-white p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+                        <i class="fas fa-robot text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-secondary">Drones Terrestres</h3>
+                    <p class="text-gray-600 mb-4">Solução para cargas maiores (até 200kg) com trajetos programados e totalmente autônomos.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-2"></i> Operação 24 horas</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-2"></i> Rastreamento GPS</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-2"></i> Ideal para centros de distribuição</li>
+                    </ul>
+                    <a href="#contato" class="text-primary font-semibold hover:underline">Saiba mais →</a>
+                </div>
+                
+                <!-- Soluções Personalizadas -->
+                <div class="drone-card bg-white p-6 rounded-lg shadow-md transition duration-300">
+                    <div class="bg-primary text-white p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+                        <i class="fas fa-cogs text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-secondary">Soluções Personalizadas</h3>
+                    <p class="text-gray-600 mb-4">Desenvolvemos sistemas de entrega sob medida para atender às necessidades específicas do seu negócio.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-2"></i> Integração com seu sistema</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-2"></i> Relatórios detalhados</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-2"></i> Suporte técnico dedicado</li>
+                    </ul>
+                    <a href="#contato" class="text-primary font-semibold hover:underline">Saiba mais →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="py-16 px-6 bg-white">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0 md:pr-12">
+                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Equipe NexDrone" class="rounded-lg shadow-xl">
+            </div>
+            <div class="md:w-1/2">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-secondary">Sobre a <span class="text-primary">NexDrone</span></h2>
+                <p class="text-gray-600 mb-4">Fundada em 2020, a NexDrone surgiu com a missão de revolucionar o setor de transportes, combinando tecnologia de ponta com um modelo de negócios mais humano e sustentável.</p>
+                <p class="text-gray-600 mb-6">Nossa visão é criar um ecossistema de entregas que seja rápido, eficiente e que valorize o tempo das pessoas, reduzindo a necessidade de longas jornadas de trabalho no transporte de cargas.</p>
+                
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="bg-primary text-white p-2 rounded-full mr-4">
+                            <i class="fas fa-bullseye text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-secondary mb-1">Nossa Missão</h4>
+                            <p class="text-gray-600">Transformar o transporte de cargas através da tecnologia de drones, oferecendo soluções mais rápidas, seguras e sustentáveis.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-primary text-white p-2 rounded-full mr-4">
+                            <i class="fas fa-eye text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-secondary mb-1">Nossa Visão</h4>
+                            <p class="text-gray-600">Ser referência nacional em transporte autônomo até 2030, com cobertura em todo o território nacional.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-primary text-white p-2 rounded-full mr-4">
+                            <i class="fas fa-hand-holding-heart text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-secondary mb-1">Nossos Valores</h4>
+                            <p class="text-gray-600">Inovação, sustentabilidade, respeito ao tempo das pessoas e excelência operacional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section id="vantagens" class="py-16 px-6 bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-secondary">Vantagens do <span class="text-primary">Transporte por Drones</span></h2>
+            <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Descubra por que cada vez mais empresas estão migrando para nossa solução inovadora.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Speed -->
+                <div class="bg-white p-6 rounded-lg shadow-md flex">
+                    <div class="bg-primary text-white p-3 rounded-full h-12 w-12 flex items-center justify-center mr-4">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 text-secondary">Velocidade Incomparável</h3>
+                        <p class="text-gray-600">Nossos drones reduzem em até 80% o tempo de entrega em comparação com métodos tradicionais, especialmente em áreas urbanas.</p>
+                    </div>
+                </div>
+                
+                <!-- Cost -->
+                <div class="bg-white p-6 rounded-lg shadow-md flex">
+                    <div class="bg-primary text-white p-3 rounded-full h-12 w-12 flex items-center justify-center mr-4">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 text-secondary">Redução de Custos</h3>
+                        <p class="text-gray-600">Elimine gastos com combustível, manutenção de frota e horas extras. Nossa solução é até 60% mais econômica.</p>
+                    </div>
+                </div>
+                
+                <!-- Sustainability -->
+                <div class="bg-white p-6 rounded-lg shadow-md flex">
+                    <div class="bg-primary text-white p-3 rounded-full h-12 w-12 flex items-center justify-center mr-4">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 text-secondary">Sustentabilidade</h3>
+                        <p class="text-gray-600">Nossos drones elétricos reduzem a pegada de carbono em até 90% comparado a veículos tradicionais.</p>
+                    </div>
+                </div>
+                
+                <!-- Humanization -->
+                <div class="bg-white p-6 rounded-lg shadow-md flex">
+                    <div class="bg-primary text-white p-3 rounded-full h-12 w-12 flex items-center justify-center mr-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 text-secondary">Trabalho Humanizado</h3>
+                        <p class="text-gray-600">Nossa tecnologia permite que motoristas e trabalhadores do transporte tenham mais tempo com suas famílias, com jornadas mais saudáveis.</p>
+                    </div>
+                </div>
+                
+                <!-- Safety -->
+                <div class="bg-white p-6 rounded-lg shadow-md flex">
+                    <div class="bg-primary text-white p-3 rounded-full h-12 w-12 flex items-center justify-center mr-4">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 text-secondary">Segurança</h3>
+                        <p class="text-gray-600">Sistemas avançados de navegação e monitoramento 24/7 garantem a integridade de suas cargas em todo o trajeto.</p>
+                    </div>
+                </div>
+                
+                <!-- Scalability -->
+                <div class="bg-white p-6 rounded-lg shadow-md flex">
+                    <div class="bg-primary text-white p-3 rounded-full h-12 w-12 flex items-center justify-center mr-4">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 text-secondary">Escalabilidade</h3>
+                        <p class="text-gray-600">Aumente ou diminua sua capacidade de entrega conforme a demanda, sem investimentos em frota ou infraestrutura.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 px-6 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-secondary">O que nossos <span class="text-primary">clientes</span> dizem</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-light p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary text-white p-2 rounded-full mr-4">
+                            <i class="fas fa-user text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-secondary">Carlos Mendes</h4>
+                            <p class="text-gray-500 text-sm">CEO - Farmácia Express</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Com os drones da NexDrone, reduzimos nosso tempo de entrega de medicamentos de 2 horas para apenas 20 minutos. Isso salvou vidas!"</p>
+                    <div class="mt-4 text-primary">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-light p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary text-white p-2 rounded-full mr-4">
+                            <i class="fas fa-user text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-secondary">Ana Lúcia</h4>
+                            <p class="text-gray-500 text-sm">Gerente - Supermercado Bom Preço</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Nossos clientes adoram a rapidez das entregas. E nós economizamos 40% nos custos logísticos no primeiro trimestre."</p>
+                    <div class="mt-4 text-primary">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-light p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary text-white p-2 rounded-full mr-4">
+                            <i class="fas fa-user text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-secondary">Roberto Almeida</h4>
+                            <p class="text-gray-500 text-sm">Diretor - Distribuidora Rápida</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"A solução da NexDrone nos permitiu reestruturar toda nossa operação logística. Agora temos mais eficiência e menos custos."</p>
+                    <div class="mt-4 text-primary">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="py-16 px-6 bg-secondary text-white">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Entre em <span class="text-primary">Contato</span></h2>
+                    <p class="text-gray-300 mb-6">Preencha o formulário ao lado e nossa equipe entrará em contato para apresentar a melhor solução para sua empresa.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="bg-primary text-white p-2 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Endereço</h4>
+                                <p class="text-gray-300">Av. das Inovações, 1234 - São Paulo/SP</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-primary text-white p-2 rounded-full mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Telefone</h4>
+                                <p class="text-gray-300">(11) 1234-5678</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-primary text-white p-2 rounded-full mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Email</h4>
+                                <p class="text-gray-300">contato@nexdrone.com.br</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-primary text-white p-2 rounded-full mr-4">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Horário de Atendimento</h4>
+                                <p class="text-gray-300">Segunda a Sexta: 8h às 18h</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-bold mb-4">Siga-nos</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-primary hover:bg-red-700 text-white p-3 rounded-full transition duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-primary hover:bg-red-700 text-white p-3 rounded-full transition duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="bg-primary hover:bg-red-700 text-white p-3 rounded-full transition duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="bg-primary hover:bg-red-700 text-white p-3 rounded-full transition duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <form class="bg-white p-6 rounded-lg shadow-lg text-secondary">
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-bold mb-2" for="name">Nome</label>
+                            <input type="text" id="name" class="contact-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-primary" placeholder="Seu nome completo">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-bold mb-2" for="email">Email</label>
+                            <input type="email" id="email" class="contact-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-primary" placeholder="seu@email.com">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-bold mb-2" for="phone">Telefone</label>
+                            <input type="tel" id="phone" class="contact-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-primary" placeholder="(00) 00000-0000">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-bold mb-2" for="company">Empresa</label>
+                            <input type="text" id="company" class="contact-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-primary" placeholder="Nome da sua empresa">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-bold mb-2" for="service">Serviço de Interesse</label>
+                            <select id="service" class="contact-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-primary">
+                                <option value="">Selecione um serviço</option>
+                                <option value="aereo">Drones Aéreos</option>
+                                <option value="terrestre">Drones Terrestres</option>
+                                <option value="personalizado">Solução Personalizada</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-bold mb-2" for="message">Mensagem</label>
+                            <textarea id="message" rows="4" class="contact-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-primary" placeholder="Descreva sua necessidade"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary hover:bg-red-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 px-6 bg-light">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-secondary">Perguntas <span class="text-primary">Frequentes</span></h2>
+            
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <button class="faq-toggle w-full flex justify-between items-center text-left">
+                        <h3 class="font-bold text-lg text-secondary">Como funciona o transporte por drones?</h3>
+                        <i class="fas fa-chevron-down text-primary"></i>
+                    </button>
+                    <div class="faq-content mt-4 hidden">
+                        <p class="text-gray-600">Nossos drones são equipados com sistemas de navegação autônoma e compartimentos seguros para transporte de cargas. Eles seguem rotas pré-definidas com pontos de decolagem e pouso estratégicos, garantindo entregas rápidas e seguras.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <button class="faq-toggle w-full flex justify-between items-center text-left">
+                        <h3 class="font-bold text-lg text-secondary">Quais tipos de carga podem ser transportadas?</h3>
+                        <i class="fas fa-chevron-down text-primary"></i>
+                    </button>
+                    <div class="faq-content mt-4 hidden">
+                        <p class="text-gray-600">Nossos drones aéreos transportam cargas de até 50kg, ideais para medicamentos, documentos, pequenas encomendas e produtos de alto valor. Os drones terrestres podem transportar até 200kg, sendo perfeitos para distribuição entre centros logísticos.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <button class="faq-toggle w-full flex justify-between items-center text-left">
+                        <h3 class="font-bold text-lg text-secondary">Como é a segurança das entregas?</h3>
+                        <i class="fas fa-chevron-down text-primary"></i>
+                    </button>
+                    <div class="faq-content mt-4 hidden">
+                        <p class="text-gray-600">Todos nossos drones possuem sistemas anti-furto, compartimentos com fechaduras eletrônicas, rastreamento GPS em tempo real e câmeras de segurança. Além disso, operamos com seguro completo para todas as cargas transportadas.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <button class="faq-toggle w-full flex justify-between items-center text-left">
+                        <h3 class="font-bold text-lg text-secondary">Qual a área de cobertura atual?</h3>
+                        <i class="fas fa-chevron-down text-primary"></i>
+                    </button>
+                    <div class="faq-content mt-4 hidden">
+                        <p class="text-gray-600">Atualmente cobrimos toda a região metropolitana de São Paulo e estamos expandindo para outras capitais. Consulte nossa equipe para verificar a disponibilidade em sua região.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <button class="faq-toggle w-full flex justify-between items-center text-left">
+                        <h3 class="font-bold text-lg text-secondary">Como posso integrar com meu sistema logístico?</h3>
+                        <i class="fas fa-chevron-down text-primary"></i>
+                    </button>
+                    <div class="faq-content mt-4 hidden">
+                        <p class="text-gray-600">Oferecemos APIs completas para integração com seus sistemas ERP, WMS ou plataformas de e-commerce. Nossa equipe técnica auxilia em todo o processo de implementação.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 px-6 bg-primary text-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Pronto para revolucionar sua logística?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Junte-se às dezenas de empresas que já estão utilizando nossa tecnologia de ponta.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#contato" class="bg-white hover:bg-gray-100 text-primary font-bold py-3 px-8 rounded-full transition duration-300">Fale Conosco</a>
+                <a href="tel:+551112345678" class="bg-transparent hover:bg-white hover:text-primary border-2 border-white text-white font-bold py-3 px-8 rounded-full transition duration-300">Ligue Agora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white py-8 px-6">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <div class="bg-primary p-2 rounded-full">
+                        <i class="fas fa-drone-alt text-white text-xl"></i>
+                    </div>
+                    <span class="text-lg font-bold">Nex<span class="text-primary">Drone</span></span>
+                </div>
+                
+                <div class="text-gray-300 text-sm text-center md:text-right">
+                    <p>© 2023 NexDrone - Todos os direitos reservados</p>
+                    <p class="mt-1">CNPJ: 12.345.678/0001-99</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-6 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-gray-300 hover:text-white mr-4">Termos de Serviço</a>
+                    <a href="#" class="text-gray-300 hover:text-white mr-4">Política de Privacidade</a>
+                    <a href="#" class="text-gray-300 hover:text-white">FAQ</a>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-300 hover:text-white">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-6 right-6 bg-primary text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                content.classList.toggle('hidden');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Mobile Menu Toggle (would need implementation)
+        // Form Submission (would need backend implementation)
+    </script>
+</body>
+</html>

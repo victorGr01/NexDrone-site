@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexDrone - Página Inicial</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #1A1A1A, #0f0808);
+  overflow-x: hidden;
+}
+
+/* Fundo com partículas animadas */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  animation: float 20s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) translateX(0) scale(1); }
+  50% { transform: translateY(-200px) translateX(50px) scale(1.2); }
+  100% { transform: translateY(0) translateX(-50px) scale(1); }
+}
+
+/* Cartões com glassmorphism e hover 3D */
+.option-card {
+  perspective: 1000px;
+  z-index: 10;
+}
+.option-card-inner {
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  padding: 3rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  transition: transform 0.5s, box-shadow 0.5s, background 0.3s;
+}
+.option-card-inner:hover {
+  transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  background: rgba(255,255,255,0.15);
+}
+
+/* Fade-in animado */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s forwards;
+}
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Título com sombra e glow */
+.title-shadow {
+  text-shadow: 2px 2px 15px rgba(0,0,0,0.6), 0 0 20px rgba(255,255,255,0.2);
+}
+
+/* Botões com hover glow */
+.button-glow {
+  background: linear-gradient(135deg, #FF4D6D, #FF7E8C);
+  color: white;
+  font-weight: 700;
+  padding: 1rem 3rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 5px 15px rgba(255,77,109,0.6);
+  transition: all 0.3s ease;
+}
+.button-glow:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(255,77,109,0.8);
+  background: linear-gradient(135deg, #FF7E8C, #FF4D6D);
+}
+
+/* Responsividade */
+@media (max-width: 768px){
+  .grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+}
+</style>
+</head>
+<body class="h-screen flex items-center justify-center relative">
+
+<!-- Fundo com partículas -->
+<div class="particles" id="particles"></div>
+
+<div class="text-center space-y-20 px-6 z-10">
+  <h1 class="text-8xl md:text-9xl font-extrabold text-white title-shadow fade-in" style="animation-delay:0.2s;">NexDrone</h1>
+  <p class="text-2xl md:text-3xl text-white/90 fade-in" style="animation-delay:0.4s;">Escolha sua forma de acesso para continuar</p>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-16 fade-in" style="animation-delay:0.6s;">
+    <!-- Usuário -->
+    <a href="inicio.html" class="option-card">
+      <div class="option-card-inner flex flex-col items-center justify-center">
+        <i class="fas fa-user text-8xl text-white mb-6 transition-transform duration-500 hover:scale-110"></i>
+        <h2 class="text-4xl font-bold text-white mb-3">sobre nós</h2>
+        <p class="text-white/70 text-center max-w-xs">Acesse suas informações, pedidos e pagamentos de forma prática e rápida.</p>
+        <span class="mt-6 button-glow inline-block cursor-pointer">Entrar</span>
+      </div>
+    </a>
+
+    <!-- Funcionário -->
+    <a href="https://truck-store-copy-06c5df8a.base44.app/Home" class="option-card">
+      <div class="option-card-inner flex flex-col items-center justify-center">
+        <i class="fas fa-user-tie text-8xl text-white mb-6 transition-transform duration-500 hover:scale-110"></i>
+        <h2 class="text-4xl font-bold text-white mb-3">camprar</h2>
+        <p class="text-white/70 text-center max-w-xs">Gerencie clientes, pedidos, caminhões, relatórios e pagamentos de forma completa.</p>
+        <span class="mt-6 button-glow inline-block cursor-pointer">Entrar</span>
+      </div>
+    </a>
+
+    <!-- Administrador -->
+    <a href="https://nex-drone-log-copy-a798baef.base44.app" class="option-card">
+      <div class="option-card-inner flex flex-col items-center justify-center">
+        <i class="fas fa-shield-alt text-8xl text-white mb-6 transition-transform duration-500 hover:scale-110"></i>
+        <h2 class="text-4xl font-bold text-white mb-3">Administrador</h2>
+        <p class="text-white/70 text-center max-w-xs">Controle total sobre o sistema, gerencie usuários, funcionários e relatórios avançados.</p>
+        <span class="mt-6 button-glow inline-block cursor-pointer">Entrar</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<script>
+// Cria partículas dinâmicas
+const particlesContainer = document.getElementById('particles');
+for(let i=0;i<50;i++){
+  const p = document.createElement('div');
+  p.classList.add('particle');
+  p.style.width = `${Math.random()*6+4}px`;
+  p.style.height = p.style.width;
+  p.style.top = `${Math.random()*100}%`;
+  p.style.left = `${Math.random()*100}%`;
+  p.style.animationDuration = `${20 + Math.random()*10}s`;
+  p.style.opacity = Math.random()*0.4+0.1;
+  particlesContainer.appendChild(p);
+}
+</script>
+
+</body>
+</html>

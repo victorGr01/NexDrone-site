@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexDrone - Login</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #1A1A1A, #160b0b);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.particles { 
+  position: fixed; 
+  top: 0; left: 0; 
+  width: 100%; height: 100%; 
+  pointer-events: none; 
+  z-index: 0; 
+}
+
+.particle { 
+  position: absolute; 
+  border-radius: 50%; 
+  background: rgba(255,255,255,0.15); 
+  animation: float 20s linear infinite; 
+}
+@keyframes float { 
+  0% { transform: translateY(0) translateX(0) scale(1); } 
+  50% { transform: translateY(-200px) translateX(50px) scale(1.2); } 
+  100% { transform: translateY(0) translateX(-50px) scale(1); } 
+}
+
+.login-card { 
+  position: relative; 
+  z-index: 10; 
+  background: rgba(255,255,255,0.1); 
+  backdrop-filter: blur(25px); 
+  border-radius: 2rem; 
+  padding: 3rem; 
+  width: 100%; 
+  max-width: 400px; 
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5); 
+  text-align: center; 
+  transition: transform 0.5s, box-shadow 0.5s; 
+  animation: slideIn 1s ease forwards;
+  opacity: 0;
+}
+
+.login-card:hover { 
+  transform: scale(1.03); 
+  box-shadow: 0 30px 60px rgba(0,0,0,0.7); 
+}
+
+@keyframes slideIn {
+  0% { opacity: 0; transform: translateY(-50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.login-card h1 { 
+  font-size: 3rem; 
+  color: white; 
+  margin-bottom: 1rem; 
+  text-shadow: 2px 2px 15px rgba(0,0,0,0.6); 
+}
+
+.login-card p { 
+  color: rgba(255,255,255,0.7); 
+  margin-bottom: 2rem; 
+}
+
+.input-field { 
+  width: 100%; 
+  padding: 1rem 1.5rem; 
+  margin-bottom: 1.5rem; 
+  border-radius: 1.5rem; 
+  border: none; 
+  outline: none; 
+  font-size: 1rem; 
+  background: rgba(255,255,255,0.15); 
+  color: white; 
+  backdrop-filter: blur(15px); 
+  transition: all 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.input-field::placeholder { 
+  color: rgba(255,255,255,0.6); 
+}
+
+.input-field:focus { 
+  background: rgba(255,255,255,0.25); 
+  box-shadow: 0 0 20px rgba(255,77,109,0.7); 
+}
+
+.button-glow { 
+  background: linear-gradient(135deg, #FF4D6D, #FF7E8C); 
+  color: white; 
+  font-weight: 700; 
+  padding: 1rem 2rem; 
+  border-radius: 1.5rem; 
+  box-shadow: 0 5px 15px rgba(255,77,109,0.6); 
+  transition: all 0.3s ease, transform 0.3s ease; 
+  cursor: pointer; 
+  width: 100%; 
+  font-size: 1.2rem; 
+  position: relative;
+  overflow: hidden;
+}
+
+.button-glow::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+  transform: scale(0);
+  transition: transform 0.5s ease;
+  border-radius: 50%;
+}
+
+.button-glow:hover::after {
+  transform: scale(1);
+}
+
+.button-glow:hover { 
+  transform: translateY(-5px); 
+  box-shadow: 0 15px 30px rgba(255,77,109,0.8); 
+  background: linear-gradient(135deg, #FF7E8C, #FF4D6D); 
+}
+
+.login-link { 
+  color: rgba(255,255,255,0.7); 
+  margin-top: 1rem; 
+  display: block; 
+  text-decoration: none; 
+  transition: color 0.3s; 
+}
+
+.login-link:hover { 
+  color: #FF7E8C; 
+}
+</style>
+</head>
+<body>
+
+<div class="particles" id="particles"></div>
+
+<div class="login-card">
+  <h1>NexDrone</h1>
+  <p>Faça login para continuar</p>
+
+  <input type="text" id="username" class="input-field" placeholder="Usuário">
+  <input type="password" id="password" class="input-field" placeholder="Senha">
+
+  <button class="button-glow" onclick="login()">Entrar</button>
+  <a href="#" class="login-link">insira a senha dos funcionarios para entrar no work space da nex drone</a>
+</div>
+
+<script>
+// Cria partículas dinâmicas
+const particlesContainer = document.getElementById('particles');
+for(let i=0;i<50;i++){
+  const p = document.createElement('div');
+  p.classList.add('particle');
+  p.style.width = `${Math.random()*6+4}px`;
+  p.style.height = p.style.width;
+  p.style.top = `${Math.random()*100}%`;
+  p.style.left = `${Math.random()*100}%`;
+  p.style.animationDuration = `${20 + Math.random()*10}s`;
+  p.style.animationDelay = `${Math.random()*10}s`;
+  p.style.opacity = Math.random()*0.4+0.1;
+  particlesContainer.appendChild(p);
+}
+
+// Função de login
+function login() {
+  const user = document.getElementById('username').value;
+  const pass = document.getElementById('password').value;
+
+  if(user === 'adm' && pass === '123') {
+    alert('Login bem-sucedido!');
+    window.location.href = 'https://nex-drone-log-copy-a798baef.base44.app';
+  } else {
+    alert('Usuário ou senha incorretos!');
+  }
+}
+</script>
+
+</body>
+</html>
